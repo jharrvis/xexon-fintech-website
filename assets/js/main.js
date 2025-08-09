@@ -182,6 +182,29 @@ $(document).ready(function() {
     addButtonEffects();
 });
 
+// Scroll locking helper functions
+function lockBodyScroll(scrollY) {
+  const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+  document.body.style.paddingRight = scrollbarWidth > 0 ? `${scrollbarWidth}px` : '';
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  document.body.style.width = '100%';
+  document.body.style.overflow = 'hidden';
+}
+
+function unlockBodyScroll(scrollY) {
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.left = '';
+  document.body.style.right = '';
+  document.body.style.width = '';
+  document.body.style.overflow = '';
+  document.body.style.paddingRight = '';
+  window.scrollTo(0, scrollY);
+}
+
 // Video Modal Functions
 function openVideoModal(videoSrc) {
     const modal = document.getElementById('videoModal');
@@ -194,19 +217,15 @@ function openVideoModal(videoSrc) {
         document.body.appendChild(modal);
     }
     
-    // Store current scroll position
-    modal.dataset.originalScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // Store current scroll position and lock body scroll
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    modal.dataset.originalScrollTop = String(scrollY);
+    lockBodyScroll(scrollY);
     
-    // Set video source
+    // Set video source and add iOS Safari support
     source.src = videoSrc;
+    video.setAttribute('playsinline', '');
     video.load();
-    
-    // Store scroll position before locking
-    const scrollY = window.scrollY;
-    modal.dataset.originalScrollTop = scrollY;
-    
-    // Simple scroll lock - just hide scrollbar
-    document.body.style.overflow = 'hidden';
     
     // Force modal to viewport center (override any parent transform effects)
     modal.style.position = 'fixed';
@@ -251,10 +270,9 @@ function closeVideoModal() {
     loader.classList.remove('show');
     modal.classList.remove('show');
     
-    // Restore body and scroll position
+    // Restore body scroll and position
     const originalScrollTop = parseInt(modal.dataset.originalScrollTop || '0');
-    document.body.style.overflow = '';
-    window.scrollTo(0, originalScrollTop);
+    unlockBodyScroll(originalScrollTop);
     modal.dataset.originalScrollTop = '';
 }
 
