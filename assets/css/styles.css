@@ -41,18 +41,6 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 @keyframes videoButtonGlow {
     0%, 100% {
         box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
@@ -251,7 +239,6 @@ a.border-primary-gold:hover {
     height: 150px;
 }
 
-
 /* Navigation Link Hover Effects - Only color change */
 
 /* Sign Up Button in Mobile Menu */
@@ -366,7 +353,6 @@ img::after,
     }
 }
 
-
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
     width: 8px;
@@ -407,7 +393,6 @@ img::after,
 html {
     scroll-behavior: smooth;
 }
-
 
 /* Hero image full height styling */
 .hero-woman-image {
@@ -487,7 +472,6 @@ body.overflow-hidden {
     height: 100% !important;
 }
 
-
 /* Mobile safe area adjustments */
 @media (max-width: 768px) {
     body {
@@ -539,8 +523,6 @@ html {
 #hero {
     overflow-x: hidden !important;
 }
-
-
 
 /* Modern Typography */
 .font-title {

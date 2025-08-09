@@ -153,3 +153,11 @@ $(document).ready(function() {
     console.log('✅ All Xexon website functionality initialized successfully!');
     
 });
+
+$(window).on('scroll', function() {
+    const scrolled = $(window).scrollTop();
+    const rate = scrolled * -0.5;
+    
+    // Parallax effect for crypto patterns
+    $('.crypto-pattern').css('background-position', `0 ${rate}px`);
+});
