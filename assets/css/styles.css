@@ -55,6 +55,7 @@
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
+    height: 100dvh !important;  /* modern mobile viewport height */
     background: rgba(0, 0, 0, 0.85);
     display: none;
     align-items: center;
