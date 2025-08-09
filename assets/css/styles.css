@@ -1,0 +1,912 @@
+/* Xexon Website Styles - Modern Crypto Financial Design */
+
+/* Animation keyframes */
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Crypto-style pulse animation */
+@keyframes cryptoPulse {
+    0%, 100% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Crypto grid pattern background */
+@keyframes cryptoGrid {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 40px;
+    }
+}
+
+/* Video Modal Animations */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Video Modal Overlay - Perfect Viewport Centering */
+#videoModal {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999999;
+    padding: 20px;
+    /* Override parent backdrop-blur effects */
+    backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+}
+
+#videoModal.show {
+    display: flex;
+}
+
+.video-modal-container {
+    position: relative;
+    width: 90%;
+    max-width: 900px;
+    max-height: 80vh;
+    margin: auto;
+    flex-shrink: 0;
+    
+    /* Animation */
+    transform: scale(0.8);
+    transition: transform 0.3s ease-out;
+}
+
+#videoModal.show .video-modal-container {
+    transform: scale(1);
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    
+    background: rgba(212, 175, 55, 0.2);
+    border: 2px solid #D4AF37;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    
+    cursor: pointer;
+    z-index: 100000;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    transition: all 0.3s ease;
+}
+
+.video-modal-close:hover {
+    background: rgba(212, 175, 55, 0.4);
+    transform: scale(1.1);
+    color: #D4AF37;
+}
+
+.video-modal-content {
+    position: relative;
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+    border: 2px solid #D4AF37;
+}
+
+.video-modal-player {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    display: block;
+    background: #000;
+}
+
+.video-modal-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 34, 56, 0.9);
+    
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    color: white;
+    font-size: 16px;
+}
+
+.video-modal-loader.show {
+    display: flex;
+}
+
+.video-modal-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid transparent;
+    border-top: 4px solid #D4AF37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+/* Mobile video modal adjustments */
+@media (max-width: 768px) {
+    #videoModal {
+        padding: 10px !important;
+    }
+    
+    .video-modal-close {
+        top: -40px;
+        right: 0;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .video-modal-player {
+        max-height: 60vh;
+    }
+    
+    .video-modal-container {
+        max-height: 80vh;
+        width: 95% !important;
+    }
+    
+    /* Ensure mobile viewport centering */
+    #videoModal {
+        height: 100vh !important;
+        height: 100svh !important; /* Use small viewport height on mobile */
+    }
+}
+
+@keyframes videoButtonGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+    }
+}
+
+/* Golden Light Flash Animation */
+@keyframes goldenFlash {
+    0% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.2), 0 0 10px rgba(212, 175, 55, 0.1), inset 0 0 0px rgba(212, 175, 55, 0);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.1);
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.2), 0 0 10px rgba(212, 175, 55, 0.1), inset 0 0 0px rgba(212, 175, 55, 0);
+        transform: scale(1);
+    }
+}
+
+/* Intense Golden Flash for Play Buttons */
+@keyframes goldenFlashIntense {
+    0% {
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.6), 0 0 90px rgba(212, 175, 55, 0.4);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
+        transform: scale(1);
+    }
+}
+
+/* Ripple Effect */
+@keyframes goldenRipple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Modern crypto card styles */
+.crypto-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.crypto-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15);
+}
+
+/* Crypto pattern overlay */
+.crypto-pattern {
+    background-image: 
+        linear-gradient(rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(212, 175, 55, 0.01) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.01) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px, 10px 10px, 10px 10px;
+    animation: cryptoGrid 20s linear infinite;
+}
+
+/* Video play button styles */
+.video-play-btn {
+    animation: videoButtonGlow 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-play-btn:hover {
+    animation: goldenFlashIntense 0.6s ease-out;
+}
+
+.video-play-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.video-play-btn:hover::before {
+    width: 200px;
+    height: 200px;
+    animation: goldenRipple 0.6s ease-out;
+}
+
+/* Primary Gold Button Effects */
+button.bg-primary-gold,
+a.bg-primary-gold,
+.btn.bg-primary-gold {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button.bg-primary-gold:hover,
+a.bg-primary-gold:hover,
+.btn.bg-primary-gold:hover {
+    animation: goldenFlash 0.5s ease-out;
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+}
+
+button.bg-primary-gold::before,
+a.bg-primary-gold::before,
+.btn.bg-primary-gold::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+button.bg-primary-gold:hover::before,
+a.bg-primary-gold:hover::before,
+.btn.bg-primary-gold:hover::before {
+    transform: translateX(100%);
+}
+
+/* Border Button Effects */
+button.border-primary-gold,
+button.border-2.border-primary-gold,
+a.border-primary-gold {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button.border-primary-gold:hover,
+button.border-2.border-primary-gold:hover,
+a.border-primary-gold:hover {
+    animation: goldenFlash 0.5s ease-out;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.1);
+    border-color: #F4D03F;
+}
+
+/* Video Play Button Styles */
+.video-play-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-play-button:hover {
+    animation: goldenFlashIntense 0.6s ease-out;
+}
+
+.video-play-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.video-play-button:hover::after {
+    width: 150px;
+    height: 150px;
+}
+
+/* Modal video container */
+.video-modal-show {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Navigation Link Hover Effects */
+.nav-link:hover {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+    animation: goldenFlash 0.4s ease-out;
+}
+
+/* Sign Up Button in Mobile Menu */
+#mobile-menu .bg-primary-gold:hover {
+    animation: goldenFlash 0.5s ease-out;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+
+/* Crypto Card Hover Effects */
+.crypto-card:hover {
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15), 0 0 20px rgba(212, 175, 55, 0.1);
+    animation: goldenFlash 0.3s ease-out;
+}
+
+/* General Button Hover Effects */
+button.bg-primary-gold:hover,
+button.border-primary-gold:hover,
+.video-play-button:hover,
+.btn:hover {
+    position: relative;
+}
+
+/* Close Button Effects */
+#closeVideoModal:hover,
+#mobile-menu-close:hover {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+    transform: scale(1.1);
+}
+
+/* Hamburger Button Effects */
+.hamburger-btn:hover {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* Ripple Effect for Button Clicks */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, rgba(212, 175, 55, 0.1) 70%, transparent 100%);
+    transform: scale(0);
+    animation: rippleEffect 0.6s cubic-bezier(0, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Golden Flash Active State */
+.golden-flash-active {
+    animation: goldenFlashIntense 0.6s ease-out infinite;
+}
+
+/* Enhanced Glow Effects for Interactive Elements */
+button.bg-primary-gold:hover,
+button.border-primary-gold:hover,
+.btn:hover,
+a.bg-primary-gold:hover,
+nav a:hover {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+/* Pulse effect for special buttons */
+.pulse-gold {
+    animation: pulseGold 2s infinite;
+}
+
+@keyframes pulseGold {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.4);
+    }
+}
+
+/* Prevent effects on images and non-button elements */
+img, 
+.hero-woman-image,
+div:not([class*="btn"]):not(button),
+section:not([class*="btn"]) {
+    animation: none !important;
+    filter: none !important;
+}
+
+img::before,
+img::after,
+.hero-woman-image::before,
+.hero-woman-image::after {
+    display: none !important;
+}
+
+/* Enhanced Why Xexon Play Button */
+#why-us .video-play-button {
+    position: relative;
+    z-index: 30;
+}
+
+#why-us .video-play-button:hover {
+    animation: goldenFlashIntense 0.6s ease-out;
+}
+
+/* Why Xexon section specific image positioning */
+#why-us .absolute.top-0.right-0 img {
+    min-width: 450px;
+    min-height: 100%;
+}
+
+@media (min-width: 1024px) {
+    #why-us .absolute.top-0.right-0 {
+        width: 45vw;
+    }
+}
+
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #D4AF37, #B8941F);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #E6C56B, #D4AF37);
+}
+
+/* Crypto-style loading spinner */
+.crypto-loader {
+    border: 3px solid rgba(212, 175, 55, 0.2);
+    border-top: 3px solid #D4AF37;
+    border-radius: 50%;
+    animation: cryptoSpin 1s linear infinite;
+}
+
+@keyframes cryptoSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+/* Hero image full height styling */
+.hero-woman-image {
+    height: 100vh;
+    width: auto;
+    object-fit: contain;
+    object-position: center bottom;
+    max-width: none;
+    min-width: 300px;
+}
+
+/* Animated Hamburger Menu */
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: currentColor;
+    margin: 2px 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-btn.active .hamburger-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-btn.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger-btn.active .hamburger-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Navbar sticky state */
+.navbar-sticky {
+    background-color: rgba(17, 24, 39, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Prevent body scroll when modal is open */
+body.overflow-hidden {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* Mobile safe area adjustments */
+@media (max-width: 768px) {
+    body {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    #navbar {
+        padding-top: env(safe-area-inset-top);
+        height: calc(5rem + env(safe-area-inset-top));
+    }
+    
+    /* Why Xexon section mobile adjustments */
+    #why-us .grid.grid-cols-1.lg\\:grid-cols-5 {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    #why-us .lg\\:col-span-3,
+    #why-us .lg\\:col-span-2 {
+        grid-column: span 1;
+    }
+    
+    #why-us .space-y-8 {
+        gap: 1.5rem;
+    }
+    
+    /* Hide background image on mobile for better readability */
+    #why-us .absolute.top-0.right-0 {
+        display: none;
+    }
+}
+
+/* Line Mesh Background */
+body {
+    background-image: url('../images/line-mesh-background.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+/* Hero section specific overflow control */
+#hero {
+    overflow-x: hidden !important;
+}
+
+
+
+/* Modern Typography */
+.font-title {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
+
+.font-heading {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.font-body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Dark Mode Enhancements */
+body.dark-mode {
+    background-color: #111827;
+    color: #ffffff;
+}
+
+/* Custom utility classes */
+.text-primary-gold {
+    color: #D4AF37;
+}
+
+.text-primary-navy {
+    color: #1A2238;
+}
+
+.bg-primary-gold {
+    background-color: #D4AF37;
+}
+
+.bg-primary-navy {
+    background-color: #1A2238;
+}
+
+.border-primary-gold {
+    border-color: #D4AF37;
+}
+
+.border-primary-navy {
+    border-color: #1A2238;
+}
+
+.hover\:bg-primary-gold:hover {
+    background-color: #D4AF37;
+}
+
+.hover\:bg-primary-navy:hover {
+    background-color: #1A2238;
+}
+
+.hover\:text-primary-gold:hover {
+    color: #D4AF37;
+}
+
+.hover\:text-primary-navy:hover {
+    color: #1A2238;
+}
+
+/* Additional responsive utilities */
+@media (max-width: 1024px) {
+    #hero .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    #hero .lg\\:col-span-3,
+    #hero .lg\\:col-span-2 {
+        grid-column: span 1;
+    }
+    
+    #hero .text-left {
+        text-align: center;
+    }
+    
+    #hero h1 {
+        font-size: 3rem;
+    }
+    
+    /* Stack hero elements vertically on tablet */
+    #hero .lg\\:h-full {
+        height: 50vh;
+        order: -1;
+        justify-content: center;
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    #hero .lg\\:h-full > div {
+        transform: none !important;
+        margin-right: 0;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .hero-woman-image {
+        height: 50vh;
+        width: auto;
+        object-fit: contain;
+        object-position: center;
+        max-width: 100%;
+    }
+    
+    /* Mobile menu panel adjustments */
+    #mobile-menu {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero {
+        min-height: 100vh;
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+    
+    #hero .max-w-7xl {
+        padding-top: 2rem;
+    }
+    
+    #hero h1 {
+        font-size: 2.75rem;
+        line-height: 1.1;
+    }
+    
+    .font-title {
+        font-weight: 900;
+    }
+    
+    .font-heading {
+        font-weight: 800;
+    }
+    
+    #hero .space-y-8 {
+        gap: 1.5rem;
+    }
+    
+    #hero .max-w-md {
+        max-width: 20rem;
+    }
+    
+    /* Mobile hero image adjustments */
+    #hero .lg\\:h-full {
+        height: 35vh;
+        max-height: 300px;
+        margin-top: 2rem;
+    }
+    
+    #hero .lg\\:h-full .h-full {
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+    
+    /* Adjust video play button for mobile */
+    #hero .w-24.h-24 {
+        width: 4rem;
+        height: 4rem;
+    }
+    
+    #hero .w-10.h-10 {
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    /* Mobile text adjustments */
+    #hero .text-lg {
+        font-size: 1rem;
+    }
+    
+    #hero .text-xl {
+        font-size: 1.125rem;
+    }
+    
+    /* Mobile button adjustments */
+    #hero button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero {
+        padding-top: 7rem;
+    }
+    
+    #hero h1 {
+        font-size: 1.875rem;
+        line-height: 1.1;
+    }
+    
+    #hero .flex-col {
+        gap: 0.75rem;
+    }
+    
+    #hero button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Smaller hero image for mobile */
+    #hero .lg\\:h-full {
+        height: 30vh;
+        max-height: 250px;
+        margin-top: 1.5rem;
+    }
+    
+    /* Adjust floating elements for mobile */
+    #hero .absolute.w-32 {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    #hero .absolute.w-24 {
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    /* Mobile text size adjustments */
+    #hero .text-lg {
+        font-size: 0.9rem;
+    }
+    
+    #hero .text-xl {
+        font-size: 1rem;
+    }
+    
+    /* Scroll indicator adjustments */
+    #hero .bottom-8 {
+        bottom: 1rem;
+    }
+}

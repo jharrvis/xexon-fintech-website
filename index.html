@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xexon - Global Fintech Solutions</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Google Fonts - Modern Bold Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-gold': '#D4AF37',
+                        'primary-navy': '#1A2238',
+                        'accent-gray': '#64748b',
+                        'light-gray': '#f8fafc'
+                    },
+                    fontFamily: {
+                        'title': ['Inter', 'system-ui', 'sans-serif'],
+                        'heading': ['Poppins', 'system-ui', 'sans-serif'],
+                        'body': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-body text-white antialiased bg-gray-900/80 backdrop-blur-sm">
+
+
+    <!-- Transparent Overlay Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-none border-b-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="assets/images/logo.png" alt="Xexon Logo" class="h-12">
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#why-us" class="nav-link text-white hover:text-primary-gold transition-colors duration-200 font-medium py-2">Why Xexon?</a>
+                    <a href="#use-cases" class="nav-link text-white hover:text-primary-gold transition-colors duration-200 font-medium py-2">Real-World Use Cases</a>
+                    <a href="#pricing" class="nav-link text-white hover:text-primary-gold transition-colors duration-200 font-medium py-2">Pricing</a>
+                    <a href="#support" class="nav-link text-white hover:text-primary-gold transition-colors duration-200 font-medium py-2">Support</a>
+                    <a href="#contact" class="nav-link text-white hover:text-primary-gold transition-colors duration-200 font-medium py-2">Contact</a>
+                    <a href="#" class="text-white hover:text-primary-gold transition-colors duration-200 font-medium py-2">Sign In</a>
+                    <a href="#" class="bg-primary-gold hover:bg-yellow-400 text-primary-navy font-bold py-3 px-6 rounded-lg transition-all duration-300">Sign Up</a>
+                </div>
+                
+                <!-- Mobile Menu Button with Animated Hamburger -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="hamburger-btn text-white hover:text-primary-gold p-2">
+                        <div class="hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offside Panel -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-primary-navy transform translate-x-full transition-transform duration-300 z-[60] shadow-2xl hidden">
+        <div class="flex flex-col h-full">
+            <!-- Mobile Menu Header -->
+            <div class="flex justify-between items-center p-6 border-b border-primary-gold/30">
+                <img src="assets/images/logo.png" alt="Xexon Logo" class="h-10">
+                <button id="mobile-menu-close" class="text-white hover:text-primary-gold">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Links -->
+            <div class="flex-1 py-8">
+                <div class="flex flex-col space-y-1">
+                    <a href="#why-us" class="nav-link block px-6 py-4 text-white hover:text-primary-gold hover:bg-primary-gold/10 transition-all duration-200 text-lg font-medium">Why Xexon?</a>
+                    <a href="#use-cases" class="nav-link block px-6 py-4 text-white hover:text-primary-gold hover:bg-primary-gold/10 transition-all duration-200 text-lg font-medium">Real-World Use Cases</a>
+                    <a href="#pricing" class="nav-link block px-6 py-4 text-white hover:text-primary-gold hover:bg-primary-gold/10 transition-all duration-200 text-lg font-medium">Pricing</a>
+                    <a href="#support" class="nav-link block px-6 py-4 text-white hover:text-primary-gold hover:bg-primary-gold/10 transition-all duration-200 text-lg font-medium">Support</a>
+                    <a href="#contact" class="nav-link block px-6 py-4 text-white hover:text-primary-gold hover:bg-primary-gold/10 transition-all duration-200 text-lg font-medium">Contact</a>
+                    <a href="#" class="block px-6 py-4 text-white hover:text-primary-gold hover:bg-primary-gold/10 transition-all duration-200 text-lg font-medium">Sign In</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Sign Up Button -->
+            <div class="p-6 border-t border-primary-gold/30">
+                <a href="#" class="block w-full bg-primary-gold hover:bg-yellow-400 text-primary-navy font-bold py-4 px-6 rounded-lg transition-all duration-300 text-center text-lg">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen text-white overflow-hidden" style="overflow-x: hidden;">
+        <!-- Futuristic Background with Gradients -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-navy via-slate-800 to-gray-900"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-transparent to-primary-gold/10"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary-gold/5 to-transparent"></div>
+        
+        <!-- Geometric Patterns Background -->
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+                    <defs>
+                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5" class="text-primary-gold"/>
+                        </pattern>
+                        <linearGradient id="fadeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#D4AF37;stop-opacity:0.1" />
+                            <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:0.05" />
+                            <stop offset="100%" style="stop-color:#1A2238;stop-opacity:0.1" />
+                        </linearGradient>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" opacity="0.3"/>
+                    <rect width="100%" height="100%" fill="url(#fadeGradient)"/>
+                </svg>
+            </div>
+        </div>
+        
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-screen">
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 h-full items-center">
+                
+                <!-- Left Side - Text Content (3 columns) -->
+                <div class="lg:col-span-3 text-left space-y-8 z-10 relative">
+                    <h1 class="font-title text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
+                        <span class="block text-primary-gold">Cash Out Crypto Assets</span>
+                        <span class="block">Easily</span>
+                    </h1>
+                    
+                    <div class="space-y-6">
+                        <p class="text-lg md:text-xl text-gray-200 leading-relaxed">
+                            Use the Xexon crypto debit card at any Visa, Mastercard, or UnionPay merchant or ATM worldwide. Top up instantly using crypto assets like Bitcoin.
+                        </p>
+                        <p class="text-base md:text-lg text-primary-gold leading-relaxed font-medium">
+                            Plus — Tier-1 offshore bank account, secure crypto wallet, diverse derivatives trading, crypto-backed loans.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-primary-gold hover:bg-yellow-400 text-primary-navy font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            Get Started Free
+                        </button>
+                        <button class="border-2 border-primary-gold hover:bg-primary-gold hover:text-primary-navy text-primary-gold font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300">
+                            Schedule Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Side - Full Height Woman Image with Video Play Button (2 columns) -->
+                <div class="lg:col-span-2 relative lg:h-full flex items-stretch justify-end">
+                    <div class="relative h-full w-full flex items-end justify-end" style="margin-right: -15vw; width: 140%;">
+                        <!-- Full Height Woman Image -->
+                        <div class="relative h-full w-auto ml-auto" style="transform: translateX(8vw);">
+                            <img src="assets/images/fig1.webp" 
+                                 alt="Xexon Professional Woman" 
+                                 class="hero-woman-image">
+                            
+                            
+                            <!-- Video Play Button Overlay -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <button data-video-src="assets/videos/forHero header.mp4" class="video-play-button group relative z-20 w-24 h-24 bg-primary-navy/90 backdrop-blur-md border-2 border-primary-gold rounded-full flex items-center justify-center hover:bg-primary-gold/20 transition-all duration-300 transform hover:scale-110 shadow-2xl">
+                                    <div class="absolute inset-0 bg-primary-gold rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-300 animate-pulse"></div>
+                                    <svg class="relative w-8 h-8 text-primary-gold ml-1 z-10" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            
+                            <!-- Futuristic Accent Lines -->
+                            <div class="absolute top-1/4 -left-4 w-1 h-32 bg-gradient-to-b from-primary-gold via-primary-gold/50 to-transparent animate-pulse"></div>
+                            <div class="absolute bottom-1/3 -right-4 w-1 h-24 bg-gradient-to-t from-primary-gold via-primary-gold/50 to-transparent animate-pulse delay-1000"></div>
+                        </div>
+                        
+                        <!-- Glowing Orb Effects -->
+                        <div class="absolute top-1/4 right-4 w-32 h-32 bg-primary-gold/10 rounded-full blur-2xl animate-pulse"></div>
+                        <div class="absolute bottom-1/4 -right-4 w-40 h-40 bg-primary-gold/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <div class="flex flex-col items-center animate-bounce">
+                <p class="text-primary-gold text-sm font-medium mb-2">Scroll Down</p>
+                <div class="w-6 h-10 border-2 border-primary-gold rounded-full flex justify-center">
+                    <div class="w-1 h-3 bg-primary-gold rounded-full mt-2 animate-pulse"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Us Section -->
+    <section id="why-us" class="relative bg-gray-900/90 backdrop-blur-sm overflow-hidden">
+        <div class="relative py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="font-title text-5xl md:text-6xl font-black text-white mb-6">Why Xexon?</h2>
+                    <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-2">
+                        Grow your wealth privately—and spend it in the real world.
+                    </p>
+                </div>
+            
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                    <!-- Left Side - Feature List (3 columns) -->
+                    <div class="lg:col-span-3 space-y-1 z-10 relative">
+                        
+                        <!-- Feature List Item 1 -->
+                        <div class="flex items-center space-x-6 p-6 border-b border-gray-700 group hover:bg-gray-800 transition-colors duration-300">
+                            <div class="flex-shrink-0">
+                                <!-- Bank/Building Icon -->
+                                <svg class="w-12 h-12 text-primary-gold" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 3L2 9v2h20V9L12 3zm0 2.84L18.16 9H5.84L12 5.84z"/>
+                                    <path d="M4 11v8h2v-6h2v6h2v-6h2v6h2v-6h2v6h2v-6h2v6h2v-8H4z"/>
+                                    <path d="M2 19h20v2H2v-2z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-heading text-xl font-bold text-white mb-2 group-hover:text-primary-gold transition-colors duration-300">
+                                    Tier-1 bank account—even for offshore entities →
+                                </h3>
+                                <p class="text-gray-400 leading-relaxed">
+                                    Open with simple KYC—no mountains of paperwork, even for BVI, Seychelles, or newly formed companies.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature List Item 2 -->
+                        <div class="flex items-center space-x-6 p-6 border-b border-gray-700 group hover:bg-gray-800 transition-colors duration-300">
+                            <div class="flex-shrink-0">
+                                <!-- Credit Card Icon -->
+                                <svg class="w-12 h-12 text-primary-gold" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4V6h16v12z"/>
+                                    <path d="M4 8h16v2H4V8zm0 4h6v2H4v-2zm8 0h8v2h-8v-2z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-heading text-xl font-bold text-white mb-2 group-hover:text-primary-gold transition-colors duration-300">
+                                    Anonymous Visa debit card, crypto-funded in seconds →
+                                </h3>
+                                <p class="text-gray-400 leading-relaxed">
+                                    Convert crypto to USD in a few clicks and pay in 200+ countries; your bank balance stays ready.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature List Item 3 -->
+                        <div class="flex items-center space-x-6 p-6 border-b border-gray-700 group hover:bg-gray-800 transition-colors duration-300">
+                            <div class="flex-shrink-0">
+                                <!-- Investment/Chart Icon -->
+                                <svg class="w-12 h-12 text-primary-gold" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 3h18v18H3V3zm2 2v14h14V5H5z"/>
+                                    <path d="M7 17l3-3 2 2 5-5-1.41-1.41L12 13.17l-2-2L7 14.59V17z"/>
+                                    <circle cx="8" cy="8" r="1"/>
+                                    <circle cx="12" cy="12" r="1"/>
+                                    <circle cx="16" cy="6" r="1"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-heading text-xl font-bold text-white mb-2 group-hover:text-primary-gold transition-colors duration-300">
+                                    Private, versatile investing →
+                                </h3>
+                                <p class="text-gray-400 leading-relaxed">
+                                    From spot to derivatives, we offer a wide range of trades while keeping you discreet—VIPs get bespoke management.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Feature List Item 4 -->
+                        <div class="flex items-center space-x-6 p-6 group hover:bg-gray-800 transition-colors duration-300">
+                            <div class="flex-shrink-0">
+                                <!-- Dashboard/Grid Icon -->
+                                <svg class="w-12 h-12 text-primary-gold" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M3 3h8v8H3V3zm2 2v4h4V5H5z"/>
+                                    <path d="M13 3h8v8h-8V3zm2 2v4h4V5h-4z"/>
+                                    <path d="M3 13h8v8H3v-8zm2 2v4h4v-4H5z"/>
+                                    <path d="M13 13h8v8h-8v-8zm2 2v4h4v-4h-4z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-heading text-xl font-bold text-white mb-2 group-hover:text-primary-gold transition-colors duration-300">
+                                    One dashboard, all moves →
+                                </h3>
+                                <p class="text-gray-400 leading-relaxed">
+                                    Wire funds, swap wallets, and load your card—everything online in a single interface.
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <!-- Right Side - Play Button and Content (2 columns) -->
+                    <div class="lg:col-span-2 relative flex flex-col items-center justify-center space-y-8 z-20">
+                        <!-- Play Button - Matching Hero Style -->
+                        <div class="relative">
+                            <button data-video-src="assets/videos/forWhy Xexon.mp4" class="video-play-button group relative z-20 w-24 h-24 bg-primary-navy/90 backdrop-blur-md border-2 border-primary-gold rounded-full flex items-center justify-center hover:bg-primary-gold/20 transition-all duration-300 transform hover:scale-110 shadow-2xl">
+                                <div class="absolute inset-0 bg-primary-gold rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-300 animate-pulse"></div>
+                                <svg class="relative w-8 h-8 text-primary-gold ml-1 z-10" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Full Height Woman Image - Right Edge -->
+        <div class="absolute top-0 right-0 h-full w-auto overflow-hidden">
+            <div class="relative h-full" style="margin-right: -8vw; transform: translateX(4vw);">
+                <img src="assets/images/fig2.webp" 
+                     alt="Xexon Professional Woman - Why Choose Us" 
+                     class="h-full w-auto object-cover object-center opacity-100"
+                     style="min-height: 100%; object-position: center; min-width: 450px;">
+            </div>
+        </div>
+    </section>
+    <!-- Use Cases Section -->
+    <section id="use-cases" class="py-20 bg-gray-800/90 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-title text-5xl md:text-6xl font-black text-white mb-6">Real-World Use Cases</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
+                    Grow wealth offshore, then wire, swipe, or withdraw cash anytime.
+                </p>
+                
+                <!-- Video Selection Buttons -->
+                <div class="flex flex-wrap justify-center gap-4 mb-8">
+                    <button data-video-src="assets/videos/forReal-World Use Cases001.mp4" class="video-play-button group relative">
+                        <div class="absolute inset-0 bg-blue-500 rounded-lg blur-sm opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                        <div class="relative bg-white border border-blue-200 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
+                            <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-700">Banking Demo</span>
+                        </div>
+                    </button>
+                    
+                    <button data-video-src="assets/videos/forReal-World Use Cases002.mp4" class="video-play-button group relative">
+                        <div class="absolute inset-0 bg-emerald-500 rounded-lg blur-sm opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                        <div class="relative bg-white border border-emerald-200 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105">
+                            <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-700">Crypto Wallet</span>
+                        </div>
+                    </button>
+                    
+                    <button data-video-src="assets/videos/forReal-World Use Cases003.mp4" class="video-play-button group relative">
+                        <div class="absolute inset-0 bg-purple-500 rounded-lg blur-sm opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
+                        <div class="relative bg-white border border-purple-200 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-purple-50 transition-all duration-300 transform hover:scale-105">
+                            <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-700">Trading Platform</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                <!-- Use Case 1: Offshore Bank Account -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="w-12 h-12 bg-primary-navy rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Offshore Bank Account</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Store assets privately
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Buy overseas property via wire transfer
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Purchase yachts, foreign equities, other high-value assets
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Pay international suppliers and B2B invoices
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Use Case 2: Secure Crypto Wallet -->
+                <div class="bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="w-12 h-12 bg-primary-gold rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Secure Crypto Wallet</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Safeguard your crypto
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Instantly send cross-border payroll and fees
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Swap to USD and top up your card or transfer funds
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Use Case 3: Anonymous Visa Debit Card -->
+                <div class="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="w-12 h-12 bg-primary-navy rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Anonymous Visa Debit Card</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Pay at any Visa merchant worldwide
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Withdraw local currency at ATMs everywhere
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Use Case 4: Trading Platform -->
+                <div class="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="w-12 h-12 bg-primary-gold rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Trading Platform</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Spot crypto trading
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Leveraged futures and options
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Arbitrage and position trades to grow your BTC
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Use Case 5: Credit -->
+                <div class="bg-gradient-to-br from-rose-50 to-pink-50 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 p-6">
+                    <div class="w-12 h-12 bg-primary-navy rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-3">Credit</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <svg class="w-3 h-3 text-primary-gold mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 8 8">
+                                <circle cx="4" cy="4" r="3"></circle>
+                            </svg>
+                            Borrow USD against BTC collateral for working capital or investment
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer id="contact" class="bg-primary-navy text-white py-16 crypto-pattern relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <img src="assets/images/logo.png" alt="Xexon Logo" class="h-12 mb-6">
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Empowering businesses worldwide with cutting-edge fintech solutions that transform the way you handle payments, manage finances, and grow your business.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary-gold hover:bg-yellow-400 p-3 rounded-full transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-primary-gold hover:bg-yellow-400 p-3 rounded-full transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-primary-gold hover:bg-yellow-400 p-3 rounded-full transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="bg-primary-gold hover:bg-yellow-400 p-3 rounded-full transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.222.083.343-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.162-1.499-.69-2.436-2.878-2.436-4.639 0-3.78 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.751-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.001 12.017.001z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Contact Info</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-primary-gold mt-1 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <div>
+                                <p class="text-gray-300">Raderman Inc.</p>
+                                <p class="text-gray-300">2 Puddle Dock</p>
+                                <p class="text-gray-300">London EC4V 3DB, United Kingdom</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-primary-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <p class="text-gray-300">+1 (555) 123-4567</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-primary-gold mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <p class="text-gray-300">contact@xexon.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary-gold transition-colors duration-200">API Documentation</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-gold transition-colors duration-200">Security & Compliance</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-gold transition-colors duration-200">Developer Resources</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-gold transition-colors duration-200">Support Center</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-gold transition-colors duration-200">Pricing</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary-gold transition-colors duration-200">Status Page</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">
+                    &copy; 2024 Raderman Inc. All rights reserved. | 
+                    <a href="#" class="hover:text-primary-gold transition-colors duration-200">Privacy Policy</a> | 
+                    <a href="#" class="hover:text-primary-gold transition-colors duration-200">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal - Full Screen Overlay -->
+    <div id="videoModal">
+        <div class="video-modal-container">
+            <!-- Close Button -->
+            <button id="closeVideoModal" class="video-modal-close">&times;</button>
+            
+            <!-- Video Container -->
+            <div class="video-modal-content">
+                <video id="modalVideo" class="video-modal-player" controls preload="metadata">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <!-- Video Overlay for Loading -->
+                <div id="videoLoader" class="video-modal-loader">
+                    <div class="video-modal-spinner"></div>
+                    <p>Loading video...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
