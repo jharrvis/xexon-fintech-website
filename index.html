@@ -19,6 +19,9 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     
+    <!-- Flowbite JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    
     <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -46,8 +49,8 @@
 <body class="font-body text-white antialiased bg-gray-900/80 backdrop-blur-sm">
 
 
-    <!-- Transparent Overlay Navigation Bar -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-none border-b-0 transition-all duration-300">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="position: fixed !important; top: 0 !important; z-index: 9999 !important;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
@@ -82,7 +85,7 @@
 
     <!-- Mobile Offside Panel -->
     <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden transition-opacity duration-300"></div>
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-primary-navy transform translate-x-full transition-transform duration-300 z-[60] shadow-2xl hidden">
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-80 bg-primary-navy transform translate-x-full transition-transform duration-300 z-[60] shadow-2xl">
         <div class="flex flex-col h-full">
             <!-- Mobile Menu Header -->
             <div class="flex justify-between items-center p-6 border-b border-primary-gold/30">
@@ -182,7 +185,7 @@
                             
                             <!-- Video Play Button Overlay -->
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <button data-video-src="assets/videos/forHero header.mp4" class="video-play-button group relative z-20 w-24 h-24 bg-primary-navy/90 backdrop-blur-md border-2 border-primary-gold rounded-full flex items-center justify-center hover:bg-primary-gold/20 transition-all duration-300 transform hover:scale-110 shadow-2xl">
+                                <button data-modal-target="video-modal" data-modal-toggle="video-modal" data-video-src="assets/videos/forHero header.mp4" class="video-play-button group relative z-20 w-24 h-24 bg-primary-navy/90 backdrop-blur-md border-2 border-primary-gold rounded-full flex items-center justify-center hover:bg-primary-gold/20 transition-all duration-300 transform hover:scale-110 shadow-2xl">
                                     <div class="absolute inset-0 bg-primary-gold rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-300 animate-pulse"></div>
                                     <svg class="relative w-8 h-8 text-primary-gold ml-1 z-10" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M8 5v14l11-7z"/>
@@ -192,7 +195,7 @@
                             
                             
                             <!-- Futuristic Accent Lines -->
-                            <div class="absolute top-1/4 -left-4 w-1 h-32 bg-gradient-to-b from-primary-gold via-primary-gold/50 to-transparent animate-pulse"></div>
+                            <!-- <div class="absolute top-1/4 -left-4 w-1 h-32 bg-gradient-to-b from-primary-gold via-primary-gold/50 to-transparent animate-pulse"></div> -->
                             <div class="absolute bottom-1/3 -right-4 w-1 h-24 bg-gradient-to-t from-primary-gold via-primary-gold/50 to-transparent animate-pulse delay-1000"></div>
                         </div>
                         
@@ -318,7 +321,7 @@
                     <div class="lg:col-span-2 relative flex flex-col items-center justify-center space-y-8 z-20">
                         <!-- Play Button - Matching Hero Style -->
                         <div class="relative">
-                            <button data-video-src="assets/videos/forWhy Xexon.mp4" class="video-play-button group relative z-20 w-24 h-24 bg-primary-navy/90 backdrop-blur-md border-2 border-primary-gold rounded-full flex items-center justify-center hover:bg-primary-gold/20 transition-all duration-300 transform hover:scale-110 shadow-2xl">
+                            <button data-modal-target="video-modal" data-modal-toggle="video-modal" data-video-src="assets/videos/forWhy Xexon.mp4" class="video-play-button group relative z-20 w-24 h-24 bg-primary-navy/90 backdrop-blur-md border-2 border-primary-gold rounded-full flex items-center justify-center hover:bg-primary-gold/20 transition-all duration-300 transform hover:scale-110 shadow-2xl">
                                 <div class="absolute inset-0 bg-primary-gold rounded-full blur-xl opacity-40 group-hover:opacity-70 transition-opacity duration-300 animate-pulse"></div>
                                 <svg class="relative w-8 h-8 text-primary-gold ml-1 z-10" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
@@ -352,7 +355,7 @@
                 
                 <!-- Video Selection Buttons -->
                 <div class="flex flex-wrap justify-center gap-4 mb-8">
-                    <button data-video-src="assets/videos/forReal-World Use Cases001.mp4" class="video-play-button group relative">
+                    <button data-modal-target="video-modal" data-modal-toggle="video-modal" data-video-src="assets/videos/forReal-World Use Cases001.mp4" class="video-play-button group relative">
                         <div class="absolute inset-0 bg-blue-500 rounded-lg blur-sm opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
                         <div class="relative bg-white border border-blue-200 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-blue-50 transition-all duration-300 transform hover:scale-105">
                             <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
@@ -362,7 +365,7 @@
                         </div>
                     </button>
                     
-                    <button data-video-src="assets/videos/forReal-World Use Cases002.mp4" class="video-play-button group relative">
+                    <button data-modal-target="video-modal" data-modal-toggle="video-modal" data-video-src="assets/videos/forReal-World Use Cases002.mp4" class="video-play-button group relative">
                         <div class="absolute inset-0 bg-emerald-500 rounded-lg blur-sm opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
                         <div class="relative bg-white border border-emerald-200 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105">
                             <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 24 24">
@@ -372,7 +375,7 @@
                         </div>
                     </button>
                     
-                    <button data-video-src="assets/videos/forReal-World Use Cases003.mp4" class="video-play-button group relative">
+                    <button data-modal-target="video-modal" data-modal-toggle="video-modal" data-video-src="assets/videos/forReal-World Use Cases003.mp4" class="video-play-button group relative">
                         <div class="absolute inset-0 bg-purple-500 rounded-lg blur-sm opacity-20 group-hover:opacity-40 transition-opacity duration-300"></div>
                         <div class="relative bg-white border border-purple-200 rounded-lg px-4 py-2 flex items-center gap-2 hover:bg-purple-50 transition-all duration-300 transform hover:scale-105">
                             <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
@@ -615,27 +618,41 @@
         </div>
     </footer>
 
-    <!-- Video Modal - Full Screen Overlay -->
-    <div id="videoModal">
-        <div class="video-modal-container">
-            <!-- Close Button -->
-            <button id="closeVideoModal" class="video-modal-close">&times;</button>
-            
-            <!-- Video Container -->
-            <div class="video-modal-content">
-                <video id="modalVideo" class="video-modal-player" controls preload="metadata">
-                    <source src="" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+    <!-- Modern Video Modal -->
+    <div id="video-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed inset-0 z-[60] justify-center items-center w-full h-full bg-black/70 backdrop-blur-sm">
+        <div class="relative p-6 w-full max-w-5xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-gradient-to-br from-primary-navy/95 to-gray-900/95 rounded-2xl shadow-2xl border border-primary-gold/30 backdrop-blur-xl">
+                <!-- Close button - top right corner -->
+                <button type="button" class="absolute top-4 right-4 z-50 text-primary-navy bg-primary-gold hover:bg-yellow-400 rounded-full w-12 h-12 inline-flex justify-center items-center transition-all duration-300 shadow-lg" data-modal-hide="video-modal">
+                    <svg class="w-5 h-5 text-primary-navy" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
                 
-                <!-- Video Overlay for Loading -->
-                <div id="videoLoader" class="video-modal-loader">
-                    <div class="video-modal-spinner"></div>
-                    <p>Loading video...</p>
+                <!-- Modal body -->
+                <div class="p-6">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                        <video id="modal-video" class="w-full h-auto max-h-[75vh] bg-black rounded-xl" controls preload="metadata" controlsList="nodownload">
+                            <source src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Decorative glow effect -->
+                        <div class="absolute inset-0 rounded-xl bg-gradient-to-t from-primary-gold/10 via-transparent to-transparent pointer-events-none"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+        </svg>
+    </button>
 
     <!-- Custom JavaScript -->
     <script src="assets/js/main.js"></script>
